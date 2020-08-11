@@ -20,6 +20,10 @@ public class testscript : MonoBehaviour
         Debug.Log("testing interact");
         Debug.Log(name);
         Debug.Log(number);
+    }
 
+    public void testActive() 
+    {
+        Debug.Log("testing active");
     }
 }

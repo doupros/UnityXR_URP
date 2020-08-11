@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7287694502838277777}
   - component: {fileID: 6679598884681237041}
   - component: {fileID: -3222483739189353098}
+  - component: {fileID: 4519501304563312769}
   m_Layer: 0
   m_Name: Node1
   m_TagString: Untagged
@@ -180,3 +181,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
+--- !u!114 &4519501304563312769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298722345663094362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991c69b8a1b6a444a9177914f77cf7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TintColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  m_TintOnHover: 0
+  m_TintOnSelection: 1
+  m_TintRenderers: []
