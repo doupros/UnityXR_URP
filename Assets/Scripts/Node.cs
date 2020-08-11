@@ -69,27 +69,27 @@ public class Node : MonoBehaviour
 
     }
 
-    private void OnMouseEnter()
-    {
-        //GetComponent<Renderer>().material.color = Color.red;
+    //private void OnMouseEnter()
+    //{
+    //    //GetComponent<Renderer>().material.color = Color.red;
 
-        foreach (Edge edge in Connections)
-        {
+    //    foreach (Edge edge in Connections)
+    //    {
 
-            edge.edge.material.color = Color.green;
-            edge.edge.SetWidth(0.5f, 0.5f);
-            edge.edge.SetPosition(0, transform.position);
-            edge.edge.SetPosition(1, edge.target.transform.position);
-        }
-    }
-    private void OnMouseExit()
-    {
-        GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
-        foreach (Edge edge in Connections)
-        {
+    //        edge.edge.material.color = Color.green;
+    //        edge.edge.SetWidth(0.5f, 0.5f);
+    //        edge.edge.SetPosition(0, transform.position);
+    //        edge.edge.SetPosition(1, edge.target.transform.position);
+    //    }
+    //}
+    //private void OnMouseExit()
+    //{
+    //    GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+    //    foreach (Edge edge in Connections)
+    //    {
 
-            edge.edge.material.color = Color.gray;
-            edge.edge.SetWidth(0.02f, 0.02f);
-        }
-    }
+    //        edge.edge.material.color = Color.gray;
+    //        edge.edge.SetWidth(0.02f, 0.02f);
+    //    }
+    //}
 }
