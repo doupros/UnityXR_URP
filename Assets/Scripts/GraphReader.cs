@@ -46,7 +46,7 @@ public class GraphReader : MonoBehaviour
 
                 if (xmlNode.Name == "node")
                 {
-                    Vector3 random_starting_position = Random.onUnitSphere * 15;
+                    Vector3 random_starting_position = Random.onUnitSphere * 7;
                     Node node = Instantiate(nodePrefab, random_starting_position, Quaternion.identity) as Node;
 
                     //Node nodetest = new Node();               

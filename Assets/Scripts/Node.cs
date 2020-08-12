@@ -92,4 +92,30 @@ public class Node : MonoBehaviour
     //        edge.edge.SetWidth(0.02f, 0.02f);
     //    }
     //}
+
+
+    public void OnSelectEnter()
+    {
+        //GetComponent<Renderer>().material.color = Color.red;
+
+        foreach (Edge edge in Connections)
+        {
+
+            edge.edge.material.color = Color.green;
+            edge.edge.SetWidth(0.3f, 0.3f);
+            edge.edge.SetPosition(0, transform.position);
+            edge.edge.SetPosition(1, edge.target.transform.position);
+        }
+    }
+
+    public void OnSelectOut()
+    {
+        GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+        foreach (Edge edge in Connections)
+        {
+
+            edge.edge.material.color = Color.gray;
+            edge.edge.SetWidth(0.02f, 0.02f);
+        }
+    }
 }

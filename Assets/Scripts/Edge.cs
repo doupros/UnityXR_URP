@@ -15,8 +15,8 @@ public class Edge : MonoBehaviour
     {
 
         edge = gameObject.GetComponent<LineRenderer>();
-        edge.startWidth = 0.02f;
-        edge.endWidth = 0.02f;
+        edge.startWidth = 0.002f;
+        edge.endWidth = 0.002f;
         // Init();
         edge.SetPosition(0, source.GetPosition());
         edge.SetPosition(1, target.GetPosition());

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 486260081171311548}
   - component: {fileID: 486260081171311551}
   - component: {fileID: -2891689919436123519}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: be4612d0110a5b74b8b8f5a66c8bb728, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
