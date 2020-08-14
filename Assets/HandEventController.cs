@@ -25,12 +25,22 @@ public class HandEventController : MonoBehaviour
         if (EnableLeftHandPannal)
         {
             leftHandPannal.gameObject.SetActive(EnableLeftHandPannal && CheckIfActivated(leftHandPannal));
+            //if (CheckIfActivated(leftHandPannal))
+            //{
+            //    SwithBool(EnableLeftHandPannal);
+            //    leftHandPannal.gameObject.SetActive(EnableLeftHandPannal);
+            //}
         }
+
         if (EnableRightHandInteractLine)
         {
             rightHandInteractLine.gameObject.SetActive(EnableRightHandInteractLine && CheckIfActivated(rightHandInteractLine));
+            //if (CheckIfActivated(rightHandInteractLine))
+            //{
+            //    SwithBool(EnableRightHandInteractLine);
+            //    rightHandInteractLine.gameObject.SetActive(EnableRightHandInteractLine);
+            //}
         }
-      
     }
 
     public bool CheckIfActivated(XRController controller)
@@ -39,4 +49,12 @@ public class HandEventController : MonoBehaviour
 
         return isActived;
     }
+
+
+    public void SwithBool( bool boolToSwitch)
+    {
+        boolToSwitch = !boolToSwitch; 
+        Debug.Log("SwitchTriggered");
+    }
+
 }
