@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+
+  - SoundHandler
+  - PlayerTextOutput
   - MainVRCam
+
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - Grab
   - Ground
   - Body
-  - 
+  - Interactivalbe
   - 
   - 
   - 
