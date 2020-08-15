@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+
   - SoundHandler
   - PlayerTextOutput
+  - MainVRCam
+
   layers:
   - Default
   - TransparentFX
