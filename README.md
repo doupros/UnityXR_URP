@@ -1,4 +1,3 @@
-# UnityXR_URP
-# VR Network Visualization
+# VR  Drug Network Visualization
 
-### This is a dissertation project fot VR Drug Visualization by Hemi and Giannos.
+#### This is the dissertation project for VR Drug Network Visualization by Hemi and Giannos.
