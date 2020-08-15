@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Node : MonoBehaviour
 {
+    public TextMeshPro Name;
     public string id;
-    public string displayName; 
+    public string displayName;
     public string type;
 
     public Material[] material;
@@ -24,12 +25,12 @@ public class Node : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        Name.text = displayName;
         Renderer rend = GetComponent<Renderer>();
 
         rend.enabled = true;
@@ -57,6 +58,8 @@ public class Node : MonoBehaviour
                 // GetComponent<Renderer>().material.color = Color.blue;
                 break;
         }
+
+        //Instantiate(Node);
     }
     public Vector3 GetPosition()
     {
@@ -65,7 +68,7 @@ public class Node : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+        // GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
 
     }
 
@@ -92,30 +95,4 @@ public class Node : MonoBehaviour
     //        edge.edge.SetWidth(0.02f, 0.02f);
     //    }
     //}
-
-
-    public void OnSelectEnter()
-    {
-        //GetComponent<Renderer>().material.color = Color.red;
-
-        foreach (Edge edge in Connections)
-        {
-
-            edge.edge.material.color = Color.green;
-            edge.edge.SetWidth(0.3f, 0.3f);
-            edge.edge.SetPosition(0, transform.position);
-            edge.edge.SetPosition(1, edge.target.transform.position);
-        }
-    }
-
-    public void OnSelectOut()
-    {
-        GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
-        foreach (Edge edge in Connections)
-        {
-
-            edge.edge.material.color = Color.gray;
-            edge.edge.SetWidth(0.02f, 0.02f);
-        }
-    }
 }
