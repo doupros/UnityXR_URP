@@ -80,7 +80,7 @@ public class Node : MonoBehaviour
         {
 
             edge.edge.material.color = Color.green;
-            edge.edge.SetWidth(0.5f, 0.5f);
+            edge.edge.SetWidth(0.3f, 0.3f);
             edge.edge.SetPosition(0, transform.position);
             edge.edge.SetPosition(1, edge.target.transform.position);
         }
