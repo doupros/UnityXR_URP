@@ -28,9 +28,9 @@ public class HandEventController : MonoBehaviour
     private bool newValueLeftP;
     private bool originValueRight;
     private bool newValueRight;
-    private int countLeft = 0;
-    private int countLeftP = 0;
-    private int countRight = 0;
+    private int countLeft = 2;
+    private int countLeftP = 2;
+    private int countRight = 2;
 
     void Start()
     {

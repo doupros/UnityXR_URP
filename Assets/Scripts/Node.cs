@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class Node : MonoBehaviour
 {
     public TextMeshPro Name;
@@ -22,6 +24,9 @@ public class Node : MonoBehaviour
 
     public List<Node> Neighbours;
     public List<Edge> Connections;
+
+    private GameObject leftHandPannal;
+    private TextMeshPro[] textList;
 
     private void Awake()
     {
@@ -60,6 +65,13 @@ public class Node : MonoBehaviour
         }
 
         //Instantiate(Node);
+
+        leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
+       
+        //textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+        //var temp = GameObject.FindGameObjectWithTag("LeftHandPannal").GetComponentInChildren<Canvas>();
+       // Debug.Log(temp);
+
     }
     public Vector3 GetPosition()
     {
@@ -94,5 +106,16 @@ public class Node : MonoBehaviour
             edge.edge.material.color = Color.gray;
             edge.edge.SetWidth(0.02f, 0.02f);
         }
+    }
+
+    public void OnDisplaySelectIn()
+    {
+        leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
+        Debug.Log(leftHandPannal);
+        textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+        textList[0].text = "Name: " + Name.text;
+        textList[1].text = "DisplayName: " + displayName;
+        textList[2].text = "ID: " + id;
+        textList[3].text = "Type: " + type;
     }
 }
