@@ -111,11 +111,13 @@ public class Node : MonoBehaviour
     public void OnDisplaySelectIn()
     {
         leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
-        Debug.Log(leftHandPannal);
-        textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
-        textList[0].text = "Name: " + Name.text;
-        textList[1].text = "DisplayName: " + displayName;
-        textList[2].text = "ID: " + id;
-        textList[3].text = "Type: " + type;
+        if (leftHandPannal != null)
+        {
+            textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+            textList[0].text = "Name: " + Name.text;
+            textList[1].text = "DisplayName: " + displayName;
+            textList[2].text = "ID: " + id;
+            textList[3].text = "Type: " + type;
+        }
     }
 }

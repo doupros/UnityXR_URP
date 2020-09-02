@@ -9,6 +9,7 @@ public class GraphReader : MonoBehaviour
     public Node nodePrefab;
     public Edge edgePrefab;
     public Hashtable NodesHash;
+    public Hashtable NodeNameHash { get; set; }
     //public List<Node> Nodes;
     //public List<Edge> Edges;
     public bool again;
@@ -17,6 +18,7 @@ public class GraphReader : MonoBehaviour
     public void Start()
     {
         NodesHash = new Hashtable();
+        NodeNameHash = new Hashtable();
 
         ///---------------- LOAD SOURCE FILE------------
         //string sourceFile = Application.dataPath + "/Data/random100_300Graph.graphml";
@@ -51,6 +53,7 @@ public class GraphReader : MonoBehaviour
                     node.id = xmlNode.Attributes["id"].Value;
 
                     NodesHash.Add(node.id, node);
+                    NodeNameHash.Add(node.Name, node);  
                     Graph.Nodes.Add(node);
 
                     for (int k = 0; k < xmlNode.ChildNodes.Count; k++)
@@ -103,10 +106,7 @@ public class GraphReader : MonoBehaviour
             edge.target.Connections.Add(edge);
         }
     }
-    //public Hashtable GetNodesHash()
-    //{
-    //    return NodesHash;
-    //}
+
 
     //public List<Node> GetNodes()
     //{

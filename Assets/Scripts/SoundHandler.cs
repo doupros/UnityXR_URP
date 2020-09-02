@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script is the sound feedback for the keyboard - Hemi
+/// </summary>
+
 public class SoundHandler : MonoBehaviour
 {
     public AudioClip keyClick;
