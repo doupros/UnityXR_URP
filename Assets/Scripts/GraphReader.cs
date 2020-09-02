@@ -51,7 +51,7 @@ public class GraphReader : MonoBehaviour
                 if (xmlNode.Name == "node")
                 {
 
-                    Vector3 random_starting_position = Random.onUnitSphere * 15;
+                    Vector3 random_starting_position = Random.onUnitSphere * 7;
 
                     //random_starting_position.y = 0;
                     Node node = Instantiate(nodePrefab, random_starting_position, Quaternion.identity, Graph.transform) as Node;
@@ -100,8 +100,7 @@ public class GraphReader : MonoBehaviour
         }
         Debug.Log(Time.realtimeSinceStartup);
         MapEdges();
-        again = true;
-        Graph.UpdatePositions();
+       // again = true;
     }
 
     private void MapEdges()

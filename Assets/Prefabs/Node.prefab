@@ -329,16 +329,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b564777ec48c26140aba5f8b941d4403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graph: {fileID: 0}
   Name: {fileID: 1558720002866714033}
   id: 
+  intiID: 0
   displayName: 
   type: 
   material:
-  - {fileID: 2100000, guid: f9e6ee85df0881c4bb13a057a26db066, type: 2}
-  - {fileID: 2100000, guid: 5d18af484e053a24abc521cf80300a7d, type: 2}
-  - {fileID: 2100000, guid: 401f3c1d813c3ff49a6d29ea4fb31986, type: 2}
+  - {fileID: 2100000, guid: d4fd55c9b33cb484c96650d4823d7fce, type: 2}
+  - {fileID: 2100000, guid: 142c33b52e4ab2c4f84bf46e3e1f85b5, type: 2}
+  - {fileID: 2100000, guid: 7a9675e565ae09647bfa2badf5ff816d, type: 2}
+  - {fileID: 2100000, guid: 75dc61f7ef27054458ed1b259e353bb8, type: 2}
   Neighbours: []
   Connections: []
+  isVisited: 0
+  rend: {fileID: 0}
 --- !u!54 &2690560604690981828
 Rigidbody:
   m_ObjectHideFlags: 0
