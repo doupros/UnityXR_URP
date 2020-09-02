@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This script is for the keyboard work correctlly - Hemi
+/// </summary>
+
+
 public class KeyDetactor : MonoBehaviour
 {
     private TextMeshPro playerTextOutput;

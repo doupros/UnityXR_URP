@@ -6,6 +6,7 @@ public class KeyFeedBack : MonoBehaviour
 {
     public bool KeyHit = false;
     public bool KeyCanBeHitAgain = false;
+    public bool FeedbackSwitch = true;
 
     private float originalYPosition;
     private SoundHandler soundHandler;
@@ -20,17 +21,23 @@ public class KeyFeedBack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (KeyHit)
         {
             soundHandler.PlayOnClick();
             KeyHit = false;
             KeyCanBeHitAgain = false;
-
-            transform.position += new Vector3(0, -0.02f, 0);
         }
-        if (transform.position.y < originalYPosition)
+        if (FeedbackSwitch)
         {
-            transform.position += new Vector3(0, 0.005f, 0);
+            if (KeyHit)
+            {
+                transform.position += new Vector3(0, -0.02f, 0);
+            }
+            if (transform.position.y < originalYPosition)
+            {
+                transform.position += new Vector3(0, 0.005f, 0);
+            }
         }
         else
         {
