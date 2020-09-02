@@ -9,6 +9,8 @@ public class GraphReader : MonoBehaviour
     public Node nodePrefab;
     public Edge edgePrefab;
     public Hashtable NodesHash;
+    public Hashtable NodeNameHash { get; set; }
+
     //public List<Node> Nodes;
     //public List<Edge> Edges;
     public bool again;
@@ -17,6 +19,8 @@ public class GraphReader : MonoBehaviour
     public void Start()
     {
         NodesHash = new Hashtable();
+        NodeNameHash = new Hashtable();
+
 
         ///---------------- LOAD SOURCE FILE------------
         //string sourceFile = Application.dataPath + "/Data/random10_15Graph.graphml";
@@ -46,15 +50,21 @@ public class GraphReader : MonoBehaviour
 
                 if (xmlNode.Name == "node")
                 {
+
                     Vector3 random_starting_position = Random.onUnitSphere * 15;
+
                     //random_starting_position.y = 0;
                     Node node = Instantiate(nodePrefab, random_starting_position, Quaternion.identity, Graph.transform) as Node;
 
                     node.id = xmlNode.Attributes["id"].Value;
 
                     NodesHash.Add(node.id, node);
-                    Graph.Nodes.Add(node);
+
                     //node.displayName = node.id;
+
+                    NodeNameHash.Add(node.Name, node);  
+                    Graph.Nodes.Add(node);
+
 
                     for (int k = 0; k < xmlNode.ChildNodes.Count; k++)
                     {
@@ -70,6 +80,7 @@ public class GraphReader : MonoBehaviour
                                     node.type = nodeData.InnerText;
                                     break;
                                 case "displayName":
+
                                 case "d1":
                                     node.displayName = nodeData.InnerText;
                                     break;
@@ -80,7 +91,6 @@ public class GraphReader : MonoBehaviour
                 if (xmlNode.Name == "edge")
                 {
                     Edge edge = Instantiate(edgePrefab, new Vector3(0, 0, 0), Quaternion.identity, Graph.transform) as Edge;
-                    //Edge edge = new Edge();
                     edge.sourceID = xmlNode.Attributes["source"].Value;
                     edge.targetID = xmlNode.Attributes["target"].Value;
 
@@ -91,6 +101,7 @@ public class GraphReader : MonoBehaviour
         Debug.Log(Time.realtimeSinceStartup);
         MapEdges();
         again = true;
+        Graph.UpdatePositions();
     }
 
     private void MapEdges()
@@ -108,9 +119,11 @@ public class GraphReader : MonoBehaviour
         }
     }
 
+
     // Update is called once per frame
     void Update()
     {
+
 
     }
 }

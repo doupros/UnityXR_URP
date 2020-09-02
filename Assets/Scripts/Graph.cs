@@ -15,7 +15,9 @@ public class Graph : MonoBehaviour
 
     }
 
+
     public void UpdatePositions_FBG()
+
     {
         //repulsion between nodes
 
@@ -35,6 +37,7 @@ public class Graph : MonoBehaviour
                     float f = 0.001f * c / distance;    //hooke's law
                     posA += direction / distance * f;
                     posB -= direction / distance * f;
+
                     a.transform.position = posA;
                     b.transform.position = posB;
                 }
@@ -56,6 +59,7 @@ public class Graph : MonoBehaviour
                 float f = -0.001f * c * distance;
                 targetpos += direction / distance * f;
                 sourcepos -= direction / distance * f;
+
                 edge.target.transform.position = targetpos;
                 edge.source.transform.position = sourcepos;
             }
@@ -69,6 +73,7 @@ public class Graph : MonoBehaviour
             again = false;
         }
     }
+
 
     public void Draw_Circular()
     {

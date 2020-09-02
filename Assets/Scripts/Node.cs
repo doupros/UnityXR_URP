@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class Node : MonoBehaviour
 {
     public Graph graph;
@@ -26,14 +28,20 @@ public class Node : MonoBehaviour
     public List<Node> Neighbours;
     public List<Edge> Connections;
 
+
     public bool isVisited = false;
 
     //public bool isActive = true;
     public Renderer rend;
+
+    private GameObject leftHandPannal;
+    private TextMeshPro[] textList;
+
     // Start is called before the first frame update
     void Start()
     {
         Name.text = displayName;
+
         rend = GetComponent<Renderer>();
 
         rend.enabled = true;
@@ -55,6 +63,15 @@ public class Node : MonoBehaviour
                 rend.sharedMaterial = material[3];
                 break;
         }
+
+        //Instantiate(Node);
+
+        leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
+       
+        //textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+        //var temp = GameObject.FindGameObjectWithTag("LeftHandPannal").GetComponentInChildren<Canvas>();
+       // Debug.Log(temp);
+
     }
     public Vector3 GetPosition()
     {
@@ -69,9 +86,17 @@ public class Node : MonoBehaviour
     void Update()
     {
 
+
     }
 
-    private void OnMouseDown()
+    //private void OnMouseDown()
+
+    // GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+
+   
+
+    public void OnSelectEnter()
+
     {
         //foreach(Node node in Neighbours)
         //{
@@ -88,7 +113,11 @@ public class Node : MonoBehaviour
             edge.isActive = true;
         }
     }
-    private void OnMouseUpAsButton()
+
+    //private void OnMouseUpAsButton()
+
+    public void OnSelectOut()
+
     {
         //foreach (Node node in Neighbours)
         //{
@@ -100,6 +129,19 @@ public class Node : MonoBehaviour
         foreach (Edge edge in Connections)
         {
             edge.isActive = false;
+        }
+    }
+
+    public void OnDisplaySelectIn()
+    {
+        leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
+        if (leftHandPannal != null)
+        {
+            textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+            textList[0].text = "Name: " + Name.text;
+            textList[1].text = "DisplayName: " + displayName;
+            textList[2].text = "ID: " + id;
+            textList[3].text = "Type: " + type;
         }
     }
 }
