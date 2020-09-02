@@ -112,10 +112,10 @@ public class Graph : MonoBehaviour
     {
         Nodes.Sort((x, y) => x.Neighbours.Count.CompareTo(y.Neighbours.Count));
         Nodes.Reverse();
-        foreach (Node a in Nodes)
-        {
-            Debug.Log(a.Neighbours.Count);
-        }
+        //foreach (Node a in Nodes)
+        //{
+        //    //Debug.Log(a.Neighbours.Count);
+        //}
         RecureDraw(Nodes);
 
     }

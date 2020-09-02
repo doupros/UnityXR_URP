@@ -11860,6 +11860,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Comparer
       objectReference: {fileID: 0}
+    - target: {fileID: 6726373357434916530, guid: ce1da26473bfe01478061de146fb4190,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6726373357434916531, guid: ce1da26473bfe01478061de146fb4190,
         type: 3}
       propertyPath: m_LocalPosition.x
