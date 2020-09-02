@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MainSystem : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class MainSystem : MonoBehaviour
 
     private int MODE;
     private int LAST_MODE;
+
+    public GameObject resultObject;
+    public TextMeshPro[] searchResult;
 
     public Graph Graph;
     public ForceBasedGraph Force_Based_Graph;
@@ -29,6 +33,8 @@ public class MainSystem : MonoBehaviour
         // Reader = new GraphReader();
         MODE = 0;
         LAST_MODE = 0;
+        resultObject = GameObject.FindGameObjectWithTag("SearchingResult");
+        searchResult = resultObject.GetComponentsInChildren<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -68,17 +74,19 @@ public class MainSystem : MonoBehaviour
                 if (MODE != LAST_MODE)
                 {
                     LAST_MODE = COMPARE;
-                    string a = "PPR17_HUMAN";
-                    string b = "KR108_HUMAN";
 
-                    Node tempNodeA = Graph.Nodes.Find(node => node.displayName.Contains(a));
-                    Node tempNodeB = Graph.Nodes.Find(node => node.displayName.Contains(b));
+                    Node tempNodeA = null, tempNodeB = null;
+                    if (searchResult[0] != null && searchResult[1] != null)
+                    {
+                         tempNodeA = Graph.Nodes.Find(node => node.displayName.Contains(searchResult[0].text));
+                         tempNodeB = Graph.Nodes.Find(node => node.displayName.Contains(searchResult[1].text));
+                    }
                     if (tempNodeA == null || tempNodeB == null)
                     {
                         Debug.Log("Node not found");
                         break;
                     }
-                    Debug.Log(Graph.Nodes.Find(node => node.displayName.Equals(a)));
+                   // Debug.Log(Graph.Nodes.Find(node => node.displayName.Equals(a)));
                     //nodeComparer.CompareNodes(Graph.Nodes.Find(node => node.displayName.Equals(a)), Graph.Nodes.Find(node => node.displayName.Equals(b)));
                     nodeComparer.CompareNodes(tempNodeA, tempNodeB);
                 }
@@ -94,11 +102,11 @@ public class MainSystem : MonoBehaviour
         }
 
     }
-    void OnGUI()
-    {
-        if (GUILayout.Button("Press Me"))
-            Debug.Log("Hello!");
-    }
+    //void OnGUI()
+    //{
+    //    if (GUILayout.Button("Press Me"))
+    //        Debug.Log("Hello!");
+    //}
     public void SetMode(int newMode)
     {
         MODE = newMode;

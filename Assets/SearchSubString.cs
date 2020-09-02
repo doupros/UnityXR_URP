@@ -8,25 +8,28 @@ public class SearchSubString : MonoBehaviour
 {
 
     public GraphReader reader;
+    public Graph graph;
+    public bool result1 = true;
 
     private TextMeshPro thisText;
     private Hashtable nodeHashtable;
     private GameObject resultObject;
-    private TextMeshPro searchResult;
+    private TextMeshPro[] searchResult;
+    private Node searchedNode;
 
     // Start is called before the first frame update
     void Start()
     {
         thisText = gameObject.GetComponent<TextMeshPro>();
         resultObject = GameObject.FindGameObjectWithTag("SearchingResult");
-        searchResult = resultObject.GetComponentInChildren<TextMeshPro>();
-        nodeHashtable = new Hashtable (reader.NodeNameHash);
+        searchResult = resultObject.GetComponentsInChildren<TextMeshPro>();
+        nodeHashtable = new Hashtable(reader.NodeNameHash);
 
-        foreach (Node item in reader.NodeNameHash)
-        {
-           // reader.NodeNameHash[item.name] as Node;
-           
-        }
+        //foreach (Node item in reader.NodeNameHash)
+        //{
+        //    // reader.NodeNameHash[item.name] as Node;
+
+        //}
         //nodeHashtable;
     }
 
@@ -54,6 +57,27 @@ public class SearchSubString : MonoBehaviour
         //    resultObject.SetActive(true);
         //    Debug.Log(thisText.text);
         //}
-
+        if (thisText.text.Length > 0)
+        {
+            searchedNode = graph.Nodes.Find(node => node.displayName.Contains(thisText.text));
+            if (searchedNode != null)
+            {
+                //Debug.Log(searchedNode.displayName);
+                if (result1)
+                {
+                    searchResult[0].text = searchedNode.displayName;
+                }
+                else
+                {
+                    searchResult[1].text = searchedNode.displayName;
+                }
+            }
+        }
     }
+
+    public void SwithcResult()
+    {
+        result1 = !result1;
+    }
+
 }
