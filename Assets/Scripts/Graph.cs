@@ -130,7 +130,7 @@ public class Graph : MonoBehaviour
                 if (a == Nodes[0])
                     a.transform.position = new Vector3(0, 0, 0);
                 else
-                    a.transform.position = Random.onUnitSphere * 70;
+                    a.transform.position = Random.onUnitSphere * 10;
 
                 foreach (Node b in a.Neighbours)
                 {
@@ -138,7 +138,7 @@ public class Graph : MonoBehaviour
                     if (b.Neighbours.Count > a.Neighbours.Count / 4) { continue; }
                     else
                     {
-                        b.transform.position = a.transform.position + Random.onUnitSphere * 10;
+                        b.transform.position = a.transform.position + Random.onUnitSphere * 2;
                         b.isVisited = true;
                         // recureDraw(b.Neighbours);
                     }

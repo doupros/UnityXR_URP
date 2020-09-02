@@ -25,8 +25,8 @@ public class GraphReader : MonoBehaviour
         ///---------------- LOAD SOURCE FILE------------
         //string sourceFile = Application.dataPath + "/Data/random10_15Graph.graphml";
         //string sourceFile = Application.dataPath + "/Data/random100_300Graph.graphml";
-        string sourceFile = Application.dataPath + "/Data/proteins.graphml";
-        //string sourceFile = Application.dataPath + "/Data/subset.graphml";
+        //string sourceFile = Application.dataPath + "/Data/proteins.graphml";
+        string sourceFile = Application.dataPath + "/Data/subset.graphml";
 
         XmlDocument graphmlDoc = new XmlDocument();
         Debug.Log(Time.time);
@@ -51,7 +51,7 @@ public class GraphReader : MonoBehaviour
                 if (xmlNode.Name == "node")
                 {
 
-                    Vector3 random_starting_position = Random.onUnitSphere * 7;
+                    Vector3 random_starting_position = Random.onUnitSphere * 12;
 
                     //random_starting_position.y = 0;
                     Node node = Instantiate(nodePrefab, random_starting_position, Quaternion.identity, Graph.transform) as Node;

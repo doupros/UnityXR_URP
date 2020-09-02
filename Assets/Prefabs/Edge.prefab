@@ -49,6 +49,7 @@ MonoBehaviour:
   source: {fileID: 0}
   target: {fileID: 0}
   edge: {fileID: -2891689919436123519}
+  isActive: 0
 --- !u!120 &-2891689919436123519
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -98,8 +99,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.0033798218
+        value: 0.3203125
         inSlope: 0
         outSlope: 0
         tangentMode: 0

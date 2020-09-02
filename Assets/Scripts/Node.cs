@@ -107,9 +107,9 @@ public class Node : MonoBehaviour
         //}
         foreach (Edge edge in Connections)
         {
-            edge.edge.material.color = Color.red;
-            edge.edge.startWidth = 0.2f;
-            edge.edge.endWidth = 0.2f;
+            //edge.edge.material.color = Color.red;
+            //edge.edge.startWidth = 0.2f;
+            //edge.edge.endWidth = 0.2f;
             edge.isActive = true;
         }
     }
