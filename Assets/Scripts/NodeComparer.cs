@@ -28,7 +28,7 @@ public class NodeComparer : MonoBehaviour
         {
             if (node1 == neighbour)
             {
-                break;
+                continue;
             }
             node1Neihbours.Add(neighbour);
             //Instantiate(neighbour, node1.transform.position + Random.onUnitSphere, Quaternion.identity, node1.transform);
@@ -37,7 +37,7 @@ public class NodeComparer : MonoBehaviour
         {
             if (node2 == neighbour)
             {
-                break;
+                continue;
             }
             node2Neihbours.Add(neighbour);
            // Instantiate(neighbour, node2.transform.position + Random.onUnitSphere, Quaternion.identity, node2.transform);
