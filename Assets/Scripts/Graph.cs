@@ -110,6 +110,10 @@ public class Graph : MonoBehaviour
 
     public void SortAndDraw()
     {
+        foreach(Node node in Nodes)
+        {
+            node.isVisited = false;
+        }
         Nodes.Sort((x, y) => x.Neighbours.Count.CompareTo(y.Neighbours.Count));
         Nodes.Reverse();
         //foreach (Node a in Nodes)
