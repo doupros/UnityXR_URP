@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
+    public Graph graph;
+
     public TextMeshPro Name;
     public string id;
+    public long intiID;
     public string displayName;
     public string type;
 
@@ -25,42 +28,39 @@ public class Node : MonoBehaviour
     public List<Node> Neighbours;
     public List<Edge> Connections;
 
+
+    public bool isVisited = false;
+
+    //public bool isActive = true;
+    public Renderer rend;
+
     private GameObject leftHandPannal;
     private TextMeshPro[] textList;
 
-    private void Awake()
-    {
-
-    }
     // Start is called before the first frame update
     void Start()
     {
         Name.text = displayName;
-        Renderer rend = GetComponent<Renderer>();
+
+        rend = GetComponent<Renderer>();
 
         rend.enabled = true;
-        //GetComponent<Renderer>().material.color = Color.red;
         switch (type)
         {
             case "RProtein":
-                //Vector3 pos = new Vector3(Random.Range(1, 40), 1, Random.Range(1, 40));
-                //transform.position = pos;
-                //  GetComponent<Renderer>().material.color = Color.red;
+            case "Protein":
                 rend.sharedMaterial = material[0];
                 break;
             case "RPathway":
-                //Vector3 pos1 = new Vector3(Random.Range(1, 40), 10, Random.Range(1, 40));
-                //transform.position = pos1;
+            case "Pathway":
                 rend.sharedMaterial = material[1];
-
-                //GetComponent<Renderer>().material.color = Color.green;
                 break;
             case "RGene":
-                //Vector3 pos2 = new Vector3(Random.Range(1, 40), 20, Random.Range(1, 40));
-                //transform.position = pos2;
+            case "Gene":
                 rend.sharedMaterial = material[2];
-
-                // GetComponent<Renderer>().material.color = Color.blue;
+                break;
+            case "Disorder":
+                rend.sharedMaterial = material[3];
                 break;
         }
 
@@ -77,45 +77,71 @@ public class Node : MonoBehaviour
     {
         return transform.position;
     }
+
+    //private void setID(string omg)
+    //{
+    //    intiID = System.Int64.Parse(omg);
+    //}
     // Update is called once per frame
     void Update()
     {
-        // GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+
 
     }
+
+    //private void OnMouseDown()
+
+    // GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+
+   
 
     public void OnSelectEnter()
-    {
-        //GetComponent<Renderer>().material.color = Color.red;
 
+    {
+        //foreach(Node node in Neighbours)
+        //{
+        //    Vector3 currentPosition = node.GetPosition();
+        //    Vector3 direction = currentPosition - GetPosition();
+
+        //    node.transform.position = currentPosition-direction/2;
+        //}
         foreach (Edge edge in Connections)
         {
-
-            edge.edge.material.color = Color.green;
-            edge.edge.SetWidth(0.3f, 0.3f);
-            edge.edge.SetPosition(0, transform.position);
-            edge.edge.SetPosition(1, edge.target.transform.position);
+            //edge.edge.material.color = Color.red;
+            //edge.edge.startWidth = 0.2f;
+            //edge.edge.endWidth = 0.2f;
+            edge.isActive = true;
         }
     }
+
+    //private void OnMouseUpAsButton()
+
     public void OnSelectOut()
+
     {
-        GetComponent<Renderer>().material.color = new Color(transform.position.normalized.x, transform.position.normalized.y, transform.position.normalized.z, 1);
+        //foreach (Node node in Neighbours)
+        //{
+        //    Vector3 currentPosition = node.GetPosition();
+        //    Vector3 direction = currentPosition - GetPosition();
+
+        //    node.transform.position = currentPosition + direction * 2;
+        //}
         foreach (Edge edge in Connections)
         {
-
-            edge.edge.material.color = Color.gray;
-            edge.edge.SetWidth(0.02f, 0.02f);
+            edge.isActive = false;
         }
     }
 
     public void OnDisplaySelectIn()
     {
         leftHandPannal = GameObject.FindGameObjectWithTag("LeftHandPannal");
-        Debug.Log(leftHandPannal);
-        textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
-        textList[0].text = "Name: " + Name.text;
-        textList[1].text = "DisplayName: " + displayName;
-        textList[2].text = "ID: " + id;
-        textList[3].text = "Type: " + type;
+        if (leftHandPannal != null)
+        {
+            textList = leftHandPannal.GetComponentsInChildren<TextMeshPro>();
+            textList[0].text = "Name: " + Name.text;
+            textList[1].text = "DisplayName: " + displayName;
+            textList[2].text = "ID: " + id;
+            textList[3].text = "Type: " + type;
+        }
     }
 }
