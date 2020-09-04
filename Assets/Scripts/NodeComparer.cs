@@ -51,7 +51,6 @@ public class NodeComparer : MonoBehaviour
         {
             Instantiate(node, node2.transform.position + Random.onUnitSphere, Quaternion.identity, node2.transform);
         }
-
     }
     // Update is called once per frame
     void Update()
